@@ -7,14 +7,16 @@ main :: IO ()
 main = hspec $ do
     describe "Sieve of Eratosthenes" $ do
         it "calculate the lower bound" $ do
-          eratosthenes [2] `shouldBe` [2]
+          eratosthenes 2 `shouldBe` [2]
 
         it "calculate the first 10 primes" $ do
-          eratosthenes [2..29] `shouldBe` [2,3,5,7,11,13,17,19,23,29]
+          eratosthenes 29 `shouldBe` [2,3,5,7,11,13,17,19,23,29]
 
+        it "calculate below 2" $ do
+          eratosthenes 1 `shouldBe` []
 
-eratosthenes :: [Int] -> [Int]
-eratosthenes candidates = eratosthenes' [] candidates
+eratosthenes :: Int -> [Int]
+eratosthenes upperBound = eratosthenes' [] [2..upperBound] 
 
 eratosthenes' :: [Int] -> [Int] -> [Int]
 eratosthenes' primes [] = primes 
