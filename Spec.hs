@@ -12,6 +12,9 @@ main = hspec $ do
         it "calculate the first 10 primes" $ do
           eratosthenes 29 `shouldBe` [2,3,5,7,11,13,17,19,23,29]
 
+        it "calculate only primes" $ do
+          eratosthenes 4 `shouldBe` [2,3]
+
         it "calculate below 2" $ do
           eratosthenes 1 `shouldBe` []
 
