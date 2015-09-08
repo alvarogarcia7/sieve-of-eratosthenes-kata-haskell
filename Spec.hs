@@ -1,7 +1,5 @@
 import Test.Hspec
 import Test.QuickCheck
-import Control.Exception (evaluate)
-import qualified Data.Text as T
 
 main :: IO ()
 main = hspec $ do
